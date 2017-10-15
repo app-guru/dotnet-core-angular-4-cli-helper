@@ -2,7 +2,7 @@
 
 #### STEP-1 : Add bellow ItemgGroup on your \<project-name\>.csproj for run & debug 
 
-```
+```xml
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="1.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="1.1.2" />
@@ -15,7 +15,7 @@
 ```
 
 #### STEP-2 : Add bellow Target on your \<project-name\>.csproj for publish
-```
+```xml
   <Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
     <Exec Command="ng build --prod" />
   </Target>
