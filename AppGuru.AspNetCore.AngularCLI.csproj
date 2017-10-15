@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
+    <Copyright>Copyright 2017</Copyright>
+    <PackageLicenseUrl>https://github.com/app-guru/dotnet-core-angular-4-cli-helper/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/app-guru/dotnet-core-angular-4-cli-helper</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/app-guru/dotnet-core-angular-4-cli-helper/master/Icon.jpg</PackageIconUrl>
+    <RepositoryUrl>https://github.com/app-guru/dotnet-core-angular-4-cli-helper.git</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>asp net core angular cli</PackageTags>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <Authors>Prabakaran</Authors>
+    <Product>Core-Ng-Project-Template</Product>
+    <Company>App-Guru</Company>
+    <Description>This package is used to run an Angular CLI application in an ASP.NET Core project on development mode.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="1.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="1.1.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
+  </ItemGroup>
+
+  <Target Name="CopyPackage" AfterTargets="Pack">
+    <Copy SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="$(registry:HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders@Personal)\My\LocalNugetSource" />
+  </Target>
+
+</Project>
